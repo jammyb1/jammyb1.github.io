@@ -2,9 +2,9 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 const photos = [
-  { src: "/images/event1.jpg", alt: "Wedding Event" },
-  { src: "/images/event2.jpg", alt: "Concert Photography" },
-  { src: "/images/event3.jpg", alt: "Birthday Celebration" },
+  { src: "/photos/A.JPG", alt: "Wedding Event" },
+  { src: "/photos/B.JPG", alt: "Concert Photography" },
+  { src: "/photos/C.JPG", alt: "Birthday Celebration" },
 ];
 
 export default function Portfolio() {
@@ -12,13 +12,13 @@ export default function Portfolio() {
 
   return (
     <div className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-4">Event Photography Portfolio</h1>
-      <p className="mb-6 text-gray-600">Capturing unforgettable moments.</p>
+      <h1 className="text-3xl font-bold mb-4">James Betson Event Photography</h1>
+      <p className="mb-6 text-gray-600">Portfolio</p>
       <div className="grid grid-cols-3 gap-4">
         {photos.map((photo, index) => (
           <motion.div key={index} whileHover={{ scale: 1.05 }}>
             <div onClick={() => setSelectedImage(photo.src)} className="cursor-pointer overflow-hidden">
-              <img src={photo.src} alt={photo.alt} className="rounded-lg w-full h-48 object-cover" />
+              <img src={photo.src} alt={photo.alt} style={{ width: "50%", height: "60%" }} className="rounded-lg w-full h-48 object-cover" />
             </div>
           </motion.div>
         ))}
