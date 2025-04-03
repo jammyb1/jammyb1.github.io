@@ -40,3 +40,22 @@
 .read-the-docs {
   color: #888;
 }
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+body {
+  background-color: #121212; /* Dark background for a modern look */
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2 {
+  font-family: 'Poppins', sans-serif;
+}
