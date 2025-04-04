@@ -5,23 +5,23 @@ const categories = [
   {
     title: "Events",
     photos: [
-      { src: "/photos/henry21.JPG", alt: "Henry's 21st" },
-      { src: "/photos/wedding.JPG", alt: "Wedding" },
-      { src: "/photos/birthday.JPG", alt: "Birthday Celebration" },
+      { src: "/photos/A.JPG", alt: "Henry's 21st" },
+      { src: "/photos/B.JPG", alt: "Wedding" },
+      { src: "/photos/C.JPG", alt: "Birthday Celebration" },
     ],
   },
   {
     title: "Sports",
     photos: [
-      { src: "/photos/football.JPG", alt: "Football Match" },
-      { src: "/photos/basket.JPG", alt: "Basketball Action" },
+      { src: "/photos/C.JPG", alt: "Football Match" },
+      { src: "/photos/D.JPG", alt: "Basketball Action" },
     ],
   },
   {
     title: "Concerts",
     photos: [
-      { src: "/photos/concert1.JPG", alt: "Live Concert" },
-      { src: "/photos/concert2.JPG", alt: "Music Stage" },
+      { src: "/photos/E.JPG", alt: "Live Concert" },
+      { src: "/photos/F.JPG", alt: "Music Stage" },
     ],
   },
 ];
