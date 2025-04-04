@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { ScrollMenu } from "react-horizontal-scrolling-menu";
+import "react-horizontal-scrolling-menu/dist/styles.css";
 
 const categories = [
   {
@@ -37,27 +39,24 @@ export default function Portfolio() {
       {categories.map((category, index) => (
         <div key={index} className="mb-12">
           <h2 className="text-3xl font-semibold mb-4 text-white">{category.title}</h2>
-          <div className="flex space-x-4 overflow-x-auto scrollbar-hide p-2">
-            {category.photos.map((photo, idx) => (
-              <motion.div key={idx} whileHover={{ scale: 1.05 }}>
-                <div onClick={() => setSelectedImage(photo.src)} className="cursor-pointer overflow-hidden rounded-lg shadow-lg">
-                  <img 
-                    src={photo.src} 
-                    alt={photo.alt} 
-                    style={{ width: "50%", height: "60%" }} 
-                    className="rounded-md" 
-                  />
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <ScrollMenu>
+            <div className="grid grid-cols-3 gap-2 p-2">
+              {category.photos.map((photo, idx) => (
+                <motion.div key={idx} whileHover={{ scale: 1.05 }}>
+                  <div onClick={() => setSelectedImage(photo.src)} className="cursor-pointer overflow-hidden rounded-lg shadow-lg">
+                    <img src={photo.src} alt={photo.alt} style={{ width: "60%", height: "auto" }} className="rounded-md" />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </ScrollMenu>
         </div>
       ))}
 
       {selectedImage && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
           <div className="relative">
-            <img src={selectedImage} alt="Enlarged" className="rounded-lg max-w-full max-h-full" />
+            <img src={selectedImage} alt="Enlarged" style={{ width: "50%", height: "auto" }} className="rounded-lg" />
             <button className="absolute top-4 right-4 bg-white p-3 rounded-full shadow-lg" onClick={() => setSelectedImage(null)}>✕</button>
           </div>
         </div>
