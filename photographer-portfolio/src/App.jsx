@@ -47,8 +47,8 @@ export default function App() {
 
         {/* Events */}
         <section className="mt-16 mb-12">
-          <h2 className="text-2xl font-semibold mb-1">Events</h2>
-          <p className="text-zinc-400 mb-4">Capturing the moments that matter, from galas to gatherings.</p>
+          <h2 className="text-3xl md:text-4xl font-semibold mb-2">Events</h2>
+          <p className="text-zinc-400 mb-4">Capturing the moments that matter, from balls to birthdays.</p>
           <div className="flex overflow-x-auto space-x-4 pl-2">
             {photos.events.map((src, i) => (
               <img
@@ -63,8 +63,8 @@ export default function App() {
 
         {/* Sports */}
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-1">Ice Hockey</h2>
-          <p className="text-zinc-400 mb-4">Fast-paced action shots from courts, fields and beyond.</p>
+          <h2 className="text-3xl md:text-4xl font-semibold mb-2">Ice Hockey</h2>
+          <p className="text-zinc-400 mb-4">Fast-paced action shots of the University of Southampton's own ice hockey team, the Spitfires</p>
           <div className="flex overflow-x-auto space-x-4 pl-2">
             {photos.icehockey.map((src, i) => (
               <img
@@ -79,8 +79,8 @@ export default function App() {
 
         {/* Portraits */}
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-1">Football</h2>
-          <p className="text-zinc-400 mb-4">Personal, powerful portraits — bringing personality into focus.</p>
+          <h2 className="text-3xl md:text-4xl font-semibold mb-2">Football</h2>
+          <p className="text-zinc-400 mb-4">ECS football team</p>
           <div className="flex overflow-x-auto space-x-4 pl-2">
             {photos.football.map((src, i) => (
               <img
