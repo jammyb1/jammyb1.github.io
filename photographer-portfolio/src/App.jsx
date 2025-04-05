@@ -2,13 +2,13 @@ import React from "react";
 
 const photos = {
   events: [
-    "/images/event1.jpg",
-    "/images/event2.jpg",
-    "/images/event3.jpg",
+    "/photos/A.jpg",
+    "/photos/B.jpg",
+    "/photos/C.jpg",
   ],
   sports: [
-    "/images/sport1.jpg",
-    "/images/sport2.jpg",
+    "/photos/D.jpg",
+    "/photos/E.jpg",
   ],
 };
 
