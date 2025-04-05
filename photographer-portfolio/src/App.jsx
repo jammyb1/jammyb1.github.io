@@ -11,6 +11,10 @@ const photos = {
     "/photos/D.jpg",
     "/photos/E.jpg",
   ],
+  football: [
+    "/photos/D.jpg",
+    "/photos/E.jpg",
+  ],
 };
 
 export default function App() {
@@ -62,7 +66,7 @@ export default function App() {
           <h2 className="text-2xl font-semibold mb-1">Ice Hockey</h2>
           <p className="text-zinc-400 mb-4">Fast-paced action shots from courts, fields and beyond.</p>
           <div className="flex overflow-x-auto space-x-4 pl-2">
-            {photos.sports.map((src, i) => (
+            {photos.icehockey.map((src, i) => (
               <img
                 key={i}
                 src={src}
@@ -78,7 +82,7 @@ export default function App() {
           <h2 className="text-2xl font-semibold mb-1">Football</h2>
           <p className="text-zinc-400 mb-4">Personal, powerful portraits — bringing personality into focus.</p>
           <div className="flex overflow-x-auto space-x-4 pl-2">
-            {photos.portraits.map((src, i) => (
+            {photos.football.map((src, i) => (
               <img
                 key={i}
                 src={src}
