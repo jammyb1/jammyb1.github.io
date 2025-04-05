@@ -29,7 +29,7 @@ export default function App() {
             >
               LinkedIn
             </a>
-            <span className="text-zinc-500">|</span>
+            <span className="text-zinc-500"> | </span>
             <a
               href="https://www.instagram.com/jpb_.photos/"
               target="_blank"
