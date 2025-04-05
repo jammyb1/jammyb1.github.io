@@ -1,88 +1,70 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import React from "react";
 
-const categories = [
-  {
-    title: "Events",
-    photos: [
-      { src: "/photos/A.JPG", alt: "Henry's 21st" },
-      { src: "/photos/B.JPG", alt: "Wedding" },
-      { src: "/photos/C.JPG", alt: "Birthday Celebration" },
-    ],
-  },
-  {
-    title: "Sports",
-    photos: [
-      { src: "/photos/C.JPG", alt: "Football Match" },
-      { src: "/photos/D.JPG", alt: "Basketball Action" },
-    ],
-  },
-  {
-    title: "Concerts",
-    photos: [
-      { src: "/photos/E.JPG", alt: "Live Concert" },
-      { src: "/photos/F.JPG", alt: "Music Stage" },
-    ],
-  },
-];
+const photos = {
+  events: [
+    "/images/event1.jpg",
+    "/images/event2.jpg",
+    "/images/event3.jpg",
+  ],
+  sports: [
+    "/images/sport1.jpg",
+    "/images/sport2.jpg",
+  ],
+};
 
-export default function Portfolio() {
-  const [selectedImage, setSelectedImage] = useState(null);
-
+export default function App() {
   return (
-    <div className="p-10 max-w-7xl mx-auto font-sans bg-[#111] text-gray-200 min-h-screen">
-      <h1 className="text-6xl font-extrabold mb-6 text-center tracking-tight text-white">
-        James Betson Photography
-      </h1>
-      <p className="mb-14 text-gray-400 text-center text-xl">
-        Explore my work through the lens
-      </p>
-
-      {categories.map((category, index) => (
-        <div key={index} className="mb-16">
-          <h2 className="text-4xl font-semibold mb-4 text-gray-100 pl-8">{category.title}</h2>
-          <div className="overflow-x-auto whitespace-nowrap py-2 pl-8">
-            {category.photos.map((photo, idx) => (
-              <motion.div
-                key={idx}
-                whileHover={{ scale: 1.05 }}
-                className="inline-block mr-6"
-              >
-                <div
-                  onClick={() => setSelectedImage(photo.src)}
-                  className="cursor-pointer overflow-hidden rounded-xl shadow-xl"
-                >
-                  <img
-                    src={photo.src}
-                    alt={photo.alt}
-                    style={{ width: "600px", height: "400px", objectFit: "cover" }}
-                    className="rounded-lg"
-                  />
-                </div>
-              </motion.div>
-            ))}
-          </div>
+    <div className="bg-zinc-900 min-h-screen text-white font-light tracking-wide px-6">
+      <header className="py-12 text-center">
+        <h1 className="text-4xl md:text-5xl font-semibold">James Betson Photography</h1>
+        <p className="mt-3 text-zinc-400 text-lg">Explore my work through the lens</p>
+        <div className="mt-4 space-x-4">
+          <a
+            href="https://www.linkedin.com/in/james-betson-328460205/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 hover:underline"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="https://www.instagram.com/jpb_.photos/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-pink-400 hover:underline"
+          >
+            Instagram
+          </a>
         </div>
-      ))}
+      </header>
 
-      {selectedImage && (
-        <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
-          <div className="relative">
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-4">Events</h2>
+        <div className="flex overflow-x-auto space-x-4 pl-2">
+          {photos.events.map((src, i) => (
             <img
-              src={selectedImage}
-              alt="Enlarged"
-              style={{ width: "85vw", maxHeight: "85vh", objectFit: "contain" }}
-              className="rounded-lg shadow-2xl"
+              key={i}
+              src={src}
+              alt={`Event ${i + 1}`}
+              className="w-[400px] h-auto object-cover rounded-md shadow-lg"
             />
-            <button
-              className="absolute top-4 right-4 bg-white text-black p-3 rounded-full shadow-lg hover:bg-gray-200 transition"
-              onClick={() => setSelectedImage(null)}
-            >
-              ✕
-            </button>
-          </div>
+          ))}
         </div>
-      )}
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-4">Sports</h2>
+        <div className="flex overflow-x-auto space-x-4 pl-2">
+          {photos.sports.map((src, i) => (
+            <img
+              key={i}
+              src={src}
+              alt={`Sport ${i + 1}`}
+              className="w-[400px] h-auto object-cover rounded-md shadow-lg"
+            />
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
