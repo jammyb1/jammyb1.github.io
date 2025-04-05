@@ -7,7 +7,7 @@ const photos = {
     "/photos/C.jpg",
     "/photos/F.jpg",
   ],
-  sports: [
+  icehockey: [
     "/photos/D.jpg",
     "/photos/E.jpg",
   ],
@@ -19,7 +19,7 @@ export default function App() {
       <div className="max-w-5xl mx-auto px-4 py-12">
         <header className="text-center">
           <h1 className="text-4xl md:text-5xl font-semibold">James Betson Photography</h1>
-          <p className="mt-3 text-zinc-400 text-lg">Explore my work through the lens</p>
+          <p className="mt-3 text-zinc-400 text-lg">Sports and event photography</p>
           <div className="mt-4 space-x-2 text-base text-zinc-300">
             <a
               href="https://www.linkedin.com/in/james-betson-328460205/"
@@ -41,8 +41,10 @@ export default function App() {
           </div>
         </header>
 
+        {/* Events */}
         <section className="mt-16 mb-12">
-          <h2 className="text-2xl font-semibold mb-4">Events</h2>
+          <h2 className="text-2xl font-semibold mb-1">Events</h2>
+          <p className="text-zinc-400 mb-4">Capturing the moments that matter, from galas to gatherings.</p>
           <div className="flex overflow-x-auto space-x-4 pl-2">
             {photos.events.map((src, i) => (
               <img
@@ -55,14 +57,32 @@ export default function App() {
           </div>
         </section>
 
+        {/* Sports */}
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4">Sports</h2>
+          <h2 className="text-2xl font-semibold mb-1">Ice Hockey</h2>
+          <p className="text-zinc-400 mb-4">Fast-paced action shots from courts, fields and beyond.</p>
           <div className="flex overflow-x-auto space-x-4 pl-2">
             {photos.sports.map((src, i) => (
               <img
                 key={i}
                 src={src}
                 alt={`Sport ${i + 1}`}
+                className="w-[400px] h-auto object-cover rounded-md shadow-lg"
+              />
+            ))}
+          </div>
+        </section>
+
+        {/* Portraits */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-semibold mb-1">Football</h2>
+          <p className="text-zinc-400 mb-4">Personal, powerful portraits — bringing personality into focus.</p>
+          <div className="flex overflow-x-auto space-x-4 pl-2">
+            {photos.portraits.map((src, i) => (
+              <img
+                key={i}
+                src={src}
+                alt={`Portrait ${i + 1}`}
                 className="w-[400px] h-auto object-cover rounded-md shadow-lg"
               />
             ))}
