@@ -17,14 +17,47 @@ const photos = {
   ],
 };
 
+const Section = ({ title, subtitle, images, altPrefix }) => (
+  <motion.section
+    className="mt-20 mb-16 px-4 md:px-12"
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+  >
+    <h2 className="text-4xl md:text-5xl font-semibold mb-4 tracking-tight">{title}</h2>
+    <p className="text-zinc-400 mb-8 text-base md:text-lg">{subtitle}</p>
+    <div className="flex overflow-x-auto space-x-6 scrollbar-hide snap-x snap-mandatory pb-4">
+      {images.map((src, i) => (
+        <img
+          key={i}
+          src={src}
+          alt={`${altPrefix} ${i + 1}`}
+          className="w-72 md:w-96 h-auto object-cover rounded-xl shadow-xl snap-start transition-transform duration-300 hover:scale-105"
+        />
+      ))}
+    </div>
+  </motion.section>
+);
+
 export default function App() {
   return (
-    <div className="bg-zinc-900 min-h-screen text-white font-light tracking-wide">
-      <div className="max-w-5xl mx-auto px-4 py-12">
-        <header className="text-center">
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tight leading-tight">James Betson Photography</h1>
-          <p className="mt-4 text-lg text-zinc-400">Sports and event photography</p>
-          <div className="mt-4 space-x-2 text-base text-zinc-300">
+    <div className="min-h-screen w-full bg-gradient-to-b from-[#121212] to-[#1a1a1a] text-white font-light tracking-wide">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12 py-12">
+        {/* Header */}
+        <motion.header
+          className="text-center mb-20"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-tight mb-4">
+            James Betson Photography
+          </h1>
+          <p className="text-zinc-400 text-lg md:text-xl">
+            Sports & Event Photographer
+          </p>
+          <div className="mt-6 space-x-3 text-base md:text-lg">
             <a
               href="https://www.linkedin.com/in/james-betson-328460205/"
               target="_blank"
@@ -33,7 +66,7 @@ export default function App() {
             >
               LinkedIn
             </a>
-            <span className="text-zinc-500"> | </span>
+            <span className="text-zinc-600">|</span>
             <a
               href="https://www.instagram.com/jpb_.photos/"
               target="_blank"
@@ -43,59 +76,38 @@ export default function App() {
               Instagram
             </a>
           </div>
-        </header>
+        </motion.header>
 
-        {/* Events */}
-        <section className="mt-16 mb-12">
-          <h2 className="text-3xl md:text-4xl font-semibold mb-2">Events</h2>
-          <p className="text-zinc-400 mb-4">Capturing the moments that matter, from balls to birthdays.</p>
-          <div className="flex overflow-x-auto space-x-4 pl-2">
-            {photos.events.map((src, i) => (
-              <img
-                key={i}
-                src={src}
-                alt={`Event ${i + 1}`}
-                className="w-[400px] h-auto object-cover rounded-md shadow-lg"
-              />
-            ))}
-          </div>
-        </section>
+        {/* Sections */}
+        <Section
+          title="Events"
+          subtitle="Capturing the moments that matter — from balls to birthdays."
+          images={photos.events}
+          altPrefix="Event"
+        />
+        <Section
+          title="Ice Hockey"
+          subtitle="Fast-paced action shots of the University of Southampton Spitfires."
+          images={photos.icehockey}
+          altPrefix="Ice Hockey"
+        />
+        <Section
+          title="Football"
+          subtitle="ECS Football Team — passion on the pitch."
+          images={photos.football}
+          altPrefix="Football"
+        />
 
-        {/* Sports */}
-        <section className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-semibold mb-2">Ice Hockey</h2>
-          <p className="text-zinc-400 mb-4">Fast-paced action shots of the University of Southampton's own ice hockey team, the Spitfires</p>
-          <div className="flex overflow-x-auto space-x-4 pl-2">
-            {photos.icehockey.map((src, i) => (
-              <img
-                key={i}
-                src={src}
-                alt={`Sport ${i + 1}`}
-                className="w-[400px] h-auto object-cover rounded-md shadow-lg"
-              />
-            ))}
-          </div>
-        </section>
-
-        {/* Portraits */}
-        <section className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-semibold mb-2">Football</h2>
-          <p className="text-zinc-400 mb-4">ECS football team</p>
-          <div className="flex overflow-x-auto space-x-4 pl-2">
-            {photos.football.map((src, i) => (
-              <img
-                key={i}
-                src={src}
-                alt={`Portrait ${i + 1}`}
-                className="w-[400px] h-auto object-cover rounded-md shadow-lg"
-              />
-            ))}
-          </div>
-        </section>
-        <footer className="mt-16 border-t border-zinc-700 pt-8 text-center text-sm text-zinc-500">
-             © {new Date().getFullYear()} James Betson. All rights reserved.
-        </footer>
-
+        {/* Footer */}
+        <motion.footer
+          className="mt-24 pt-12 border-t border-zinc-700 text-center text-sm text-zinc-500"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          © {new Date().getFullYear()} James Betson. All rights reserved.
+        </motion.footer>
       </div>
     </div>
   );
