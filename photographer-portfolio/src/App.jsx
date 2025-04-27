@@ -22,8 +22,8 @@ export default function App() {
     <div className="bg-zinc-900 min-h-screen text-white font-light tracking-wide">
       <div className="max-w-5xl mx-auto px-4 py-12">
         <header className="text-center">
-          <h1 className="text-4xl md:text-5xl font-semibold">James Betson Photography</h1>
-          <p className="mt-3 text-zinc-400 text-lg">Sports and event photography</p>
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight leading-tight">James Betson Photography</h1>
+          <p className="mt-4 text-lg text-zinc-400">Sports and event photography</p>
           <div className="mt-4 space-x-2 text-base text-zinc-300">
             <a
               href="https://www.linkedin.com/in/james-betson-328460205/"
@@ -92,6 +92,10 @@ export default function App() {
             ))}
           </div>
         </section>
+        <footer className="mt-16 border-t border-zinc-700 pt-8 text-center text-sm text-zinc-500">
+             © {new Date().getFullYear()} James Betson. All rights reserved.
+        </footer>
+
       </div>
     </div>
   );
