@@ -20,10 +20,19 @@ function Header() {
   );
 }
 
+function Footer() {
+  return (
+    <footer className="bg-black text-zinc-400 text-center text-sm py-6 mt-12">
+      © {new Date().getFullYear()} James Betson Photography. All rights reserved.
+    </footer>
+  );
+}
+
+
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-zinc-100 flex flex-col">
+      <div className="min-h-screen flex flex-col bg-zinc-100">
         <Header />
         <main className="flex-grow">
           <Routes>
@@ -32,6 +41,7 @@ function App() {
             <Route path="/:folder/:image" element={<ImageView />} />
           </Routes>
         </main>
+        <Footer />
       </div>
     </Router>
   );
